@@ -1,26 +1,61 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #EFE9DB;
+  --cream-deep: #E6DFCD;
+  --cream-light: #F7F3E9;
+  --paper: #FBF8F0;
+  --surface: #FBF8F0;
+  --surface-2: #F7F3E9;
+  --foreground: #1A1916;
+  --ink-soft: #3A3833;
+  --muted: #8F887B;
+  --border: #D9D0B8;
+  --line-soft: #E8E0CA;
+  --accent: #1A1916;
+  --accent-hover: #3A3833;
+  --font-serif: "Noto Serif TC", "PingFang TC", "Songti TC", serif;
+  --font-sans: "Noto Sans TC", -apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei", sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-cream-deep: var(--cream-deep);
+  --color-cream-light: var(--cream-light);
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-ink-soft: var(--ink-soft);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-line-soft: var(--line-soft);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: var(--foreground);
+  color: var(--background);
 }
