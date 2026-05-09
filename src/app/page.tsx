@@ -44,8 +44,6 @@ const services = [
 export default function Home() {
   return (
     <main className="flex flex-col w-full relative">
-      <div className="bg-ambient" aria-hidden />
-      <div className="grain-overlay" aria-hidden />
       <nav className="sticky top-0 z-50 bg-cream-deep/90 backdrop-blur-sm border-b border-border">
         <div className="max-w-5xl mx-auto px-6 py-5 flex justify-between items-center">
           <a
