@@ -25,10 +25,10 @@ export default function FadeInSection({
     <MotionTag
       id={id}
       className={className}
-      initial={reduce ? false : { opacity: 0, y: 8 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={reduce ? false : { opacity: 0, y: 28, scale: 0.97 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, amount: 0.15, margin: "0px 0px -10% 0px" }}
-      transition={{ duration: 0.5, ease: "easeOut", delay }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay }}
     >
       {children}
     </MotionTag>

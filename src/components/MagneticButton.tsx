@@ -11,8 +11,8 @@ type Props = {
   external?: boolean;
 };
 
-const RADIUS = 80;
-const STRENGTH = 0.18;
+const RADIUS = 140;
+const STRENGTH = 0.35;
 
 export default function MagneticButton({
   href,
@@ -68,6 +68,8 @@ export default function MagneticButton({
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
       style={{ x: sx, y: sy }}
+      whileHover={reduce ? undefined : { scale: 1.06 }}
+      transition={{ scale: { duration: 0.25, ease: [0.22, 1, 0.36, 1] } }}
       className={`${base} ${variantClass} ${className}`}
     >
       <span className="relative z-10">{children}</span>

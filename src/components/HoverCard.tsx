@@ -28,12 +28,13 @@ export default function HoverCard({
         reduce
           ? undefined
           : {
-              y: -4,
+              y: -10,
+              scale: 1.02,
               boxShadow:
-                "0 12px 32px -12px rgba(60, 50, 30, 0.18), 0 0 0 1px rgba(180, 140, 80, 0.18)",
+                "0 24px 48px -16px rgba(60, 45, 25, 0.32), 0 8px 16px -8px rgba(180, 130, 70, 0.28), 0 0 0 1px rgba(200, 150, 80, 0.35)",
             }
       }
-      transition={{ duration: 0.2, ease: "easeOut" }}
+      transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
     </motion.a>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import CursorDot from "@/components/CursorDot";
 
 export const metadata: Metadata = {
   title: "DM AI 創作者｜用 AI 幫你把想法變成東西",
@@ -26,7 +27,10 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <CursorDot />
+        {children}
+      </body>
     </html>
   );
 }

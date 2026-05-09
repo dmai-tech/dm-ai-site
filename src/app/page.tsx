@@ -2,6 +2,7 @@ import FadeInSection from "@/components/FadeInSection";
 import HoverCard from "@/components/HoverCard";
 import MagneticButton from "@/components/MagneticButton";
 import RevealHeading from "@/components/RevealHeading";
+import ServiceCard from "@/components/ServiceCard";
 
 const DM_URL = "https://www.threads.com/@dm22ai22";
 const THREADS_URL = "https://www.threads.com/@dm22ai22";
@@ -166,33 +167,14 @@ export default function Home() {
 
           <div className="grid sm:grid-cols-3 gap-6">
             {services.map((s, i) => (
-              <div
+              <ServiceCard
                 key={s.title}
-                className="p-8 rounded-sm border border-border bg-paper flex flex-col"
-              >
-                <p className="font-serif text-xs tracking-[0.35em] text-muted mb-6">
-                  0{i + 1}
-                </p>
-                <h3 className="font-serif text-xl font-medium tracking-[0.05em] text-foreground mb-4">
-                  {s.title}
-                </h3>
-                <p className="text-ink-soft leading-[2] text-[14px] tracking-wide flex-1">
-                  {s.desc}
-                </p>
-                <div className="mt-8 pt-6 border-t border-border flex items-center justify-between">
-                  <span className="text-[10px] tracking-[0.25em] uppercase text-muted">
-                    {s.price}
-                  </span>
-                  <a
-                    href={DM_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[11px] tracking-[0.3em] uppercase text-foreground inline-flex items-center gap-2 hover:gap-3 transition-all"
-                  >
-                    詢問 <span>→</span>
-                  </a>
-                </div>
-              </div>
+                index={i}
+                title={s.title}
+                desc={s.desc}
+                price={s.price}
+                ctaHref={DM_URL}
+              />
             ))}
           </div>
         </div>

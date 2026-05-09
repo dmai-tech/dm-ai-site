@@ -11,18 +11,20 @@ const container = {
   hidden: {},
   show: {
     transition: {
-      staggerChildren: 0.04,
-      delayChildren: 0.1,
+      staggerChildren: 0.06,
+      delayChildren: 0.15,
     },
   },
 };
 
 const child = {
-  hidden: { opacity: 0, y: 4 },
+  hidden: { opacity: 0, y: 22, scale: 0.92, filter: "blur(6px)" },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] as const },
+    scale: 1,
+    filter: "blur(0px)",
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
