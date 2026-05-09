@@ -1,27 +1,33 @@
 @import "tailwindcss";
 
 :root {
-  --background: #EFE9DB;
-  --cream-deep: #E6DFCD;
-  --cream-light: #F7F3E9;
-  --paper: #FBF8F0;
-  --surface: #FBF8F0;
-  --surface-2: #F7F3E9;
-  --foreground: #1A1916;
-  --ink-soft: #3A3833;
-  --muted: #8F887B;
-  --border: #D9D0B8;
-  --line-soft: #E8E0CA;
-  --accent: #1A1916;
-  --accent-hover: #3A3833;
+  --background: #0A0E1A;
+  --bg-2: #131826;
+  --bg-3: #1A2030;
+  --paper: #131826;
+  --surface: #131826;
+  --surface-2: #1A2030;
+  --foreground: #E8ECF2;
+  --ink-soft: #B8C0D0;
+  --muted: #6F7A8E;
+  --border: #2A3142;
+  --line-soft: #1F2535;
+  --accent: #5B8BD9;
+  --accent-2: #6BA0E8;
+  --accent-soft: #2C3E5F;
+  --silver: #C0C8D8;
+  --silver-soft: #8F98A8;
+  --pixel-glow: #6BA0E8;
   --font-serif: "Noto Serif TC", "PingFang TC", "Songti TC", serif;
   --font-sans: "Noto Sans TC", -apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --font-mono: "JetBrains Mono", "IBM Plex Mono", "SF Mono", Menlo, monospace;
+  --font-pixel: "VT323", "Courier New", monospace;
 }
 
 @theme inline {
   --color-background: var(--background);
-  --color-cream-deep: var(--cream-deep);
-  --color-cream-light: var(--cream-light);
+  --color-bg-2: var(--bg-2);
+  --color-bg-3: var(--bg-3);
   --color-paper: var(--paper);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
@@ -31,9 +37,15 @@
   --color-border: var(--border);
   --color-line-soft: var(--line-soft);
   --color-accent: var(--accent);
-  --color-accent-hover: var(--accent-hover);
+  --color-accent-2: var(--accent-2);
+  --color-accent-soft: var(--accent-soft);
+  --color-silver: var(--silver);
+  --color-silver-soft: var(--silver-soft);
+  --color-pixel-glow: var(--pixel-glow);
   --font-serif: var(--font-serif);
   --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-pixel: var(--font-pixel);
 }
 
 body {
@@ -47,78 +59,134 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.font-serif {
-  font-family: var(--font-serif);
-}
+.font-serif { font-family: var(--font-serif); }
+.font-mono  { font-family: var(--font-mono); }
+.font-pixel { font-family: var(--font-pixel); letter-spacing: 0.05em; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 ::selection {
-  background: var(--foreground);
+  background: var(--accent);
   color: var(--background);
 }
 
-@keyframes magnetic-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* ========== 科技感按鈕 ========== */
+.tech-primary {
+  position: relative;
+  background: linear-gradient(180deg, #1A2540 0%, #0F1525 100%);
+  color: #E8ECF2;
+  border: 1px solid rgba(120, 160, 220, 0.4);
+  box-shadow:
+    inset 0 1px 0 rgba(180, 210, 255, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.4),
+    0 8px 24px -8px rgba(40, 80, 160, 0.45),
+    0 0 0 1px rgba(100, 150, 220, 0.15);
+  transition: all 0.3s ease;
+}
+.tech-primary:hover {
+  background: linear-gradient(180deg, #243358 0%, #131C32 100%);
+  border-color: rgba(150, 190, 240, 0.65);
+  box-shadow:
+    inset 0 1px 0 rgba(200, 220, 255, 0.28),
+    0 12px 32px -8px rgba(80, 130, 220, 0.55),
+    0 0 0 1px rgba(140, 180, 230, 0.3),
+    0 0 24px -4px rgba(100, 150, 220, 0.4);
+}
+.tech-outline {
+  background: transparent;
+  border: 1px solid rgba(120, 140, 180, 0.45);
+  color: var(--ink-soft);
+  transition: all 0.3s ease;
+}
+.tech-outline:hover {
+  border-color: var(--silver);
+  color: var(--foreground);
+  background: rgba(255, 255, 255, 0.03);
 }
 
-.magnetic-primary {
-  background: linear-gradient(120deg, #1A1916 0%, #3A2E1E 30%, #5A3F22 50%, #2A2620 75%, #1A1916 100%);
-  background-size: 260% 260%;
-  animation: magnetic-shift 4s ease-in-out infinite;
-  transition: filter 0.3s ease;
-  box-shadow: 0 8px 24px -8px rgba(40, 30, 15, 0.45);
-}
-
-.magnetic-primary:hover {
-  filter: brightness(1.18);
-  box-shadow: 0 16px 36px -10px rgba(180, 120, 50, 0.5), 0 0 0 2px rgba(200, 150, 80, 0.25);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .magnetic-primary {
-    animation: none;
-    background: var(--foreground);
-  }
-}
-
-@keyframes bg-shift {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.bg-ambient {
+/* ========== Top HUD bar ========== */
+.hud-top {
   position: fixed;
-  inset: 0;
-  z-index: -2;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 20px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--silver-soft);
+  background: linear-gradient(180deg, rgba(10, 14, 26, 0.95) 0%, rgba(10, 14, 26, 0) 100%);
   pointer-events: none;
-  background:
-    radial-gradient(60% 50% at 18% 8%,  #F5E5C0 0%, transparent 70%),
-    radial-gradient(55% 45% at 88% 92%, #E0D5A0 0%, transparent 70%),
-    radial-gradient(70% 60% at 50% 50%, #D8E2EC 0%, transparent 75%),
-    var(--background);
-  background-size: 220% 220%, 220% 220%, 240% 240%, 100% 100%;
-  animation: bg-shift 12s ease-in-out infinite;
+  user-select: none;
+}
+.hud-top .dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ADE80;
+  margin-right: 8px;
+  box-shadow: 0 0 8px rgba(74, 222, 128, 0.6);
+  animation: blink 2s ease-in-out infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
 }
 
-.grain-overlay {
+/* ========== glow text (white + cool blue glow halo) ========== */
+.text-glow {
+  color: #FFFFFF;
+  text-shadow:
+    0 0 24px rgba(120, 170, 240, 0.4),
+    0 0 48px rgba(80, 130, 220, 0.2);
+}
+.text-glow span {
+  color: inherit;
+}
+
+/* ========== dashed tech border ========== */
+.tech-border {
+  border: 1px dashed rgba(120, 140, 180, 0.35);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+/* ========== loading screen pixel progress ========== */
+.pixel-bar {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+.pixel-bar span {
+  width: 8px;
+  height: 16px;
+  background: var(--pixel-glow);
+  box-shadow: 0 0 6px rgba(107, 160, 232, 0.6);
+}
+.pixel-bar span.off {
+  background: rgba(107, 160, 232, 0.18);
+  box-shadow: none;
+}
+
+/* ========== scan line subtle texture ========== */
+.scan-overlay {
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  opacity: 0.13;
-  mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.7 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-  background-size: 180px 180px;
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.015) 0px,
+    rgba(255, 255, 255, 0.015) 1px,
+    transparent 1px,
+    transparent 3px
+  );
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .bg-ambient {
-    animation: none;
-  }
+  .hud-top .dot { animation: none; }
 }

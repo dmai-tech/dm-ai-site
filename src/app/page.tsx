@@ -43,24 +43,24 @@ const services = [
 
 export default function Home() {
   return (
-    <main className="flex flex-col w-full relative">
-      <nav className="sticky top-0 z-50 bg-cream-deep/90 backdrop-blur-sm border-b border-border">
-        <div className="max-w-5xl mx-auto px-6 py-5 flex justify-between items-center">
+    <main className="flex flex-col w-full relative pt-8">
+      <nav className="sticky top-8 z-50 backdrop-blur-md bg-background/70 border-b border-border">
+        <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
           <a
             href="#"
-            className="font-serif text-[13px] tracking-[0.35em] uppercase text-foreground"
+            className="font-mono text-[12px] tracking-[0.4em] uppercase text-foreground"
           >
-            DM AI CREATOR
+            DM_AI / CREATOR
           </a>
-          <div className="hidden sm:flex gap-8 text-[11px] tracking-[0.25em] uppercase text-muted">
+          <div className="hidden sm:flex gap-8 font-mono text-[10px] tracking-[0.3em] uppercase text-silver-soft">
             <a href="#works" className="hover:text-foreground transition">
-              Works
+              [ Works ]
             </a>
             <a href="#services" className="hover:text-foreground transition">
-              Services
+              [ Services ]
             </a>
             <a href="#about" className="hover:text-foreground transition">
-              About
+              [ About ]
             </a>
           </div>
         </div>
@@ -70,13 +70,13 @@ export default function Home() {
         as="section"
         className="min-h-[88vh] flex flex-col justify-center items-center px-6 py-24 text-center"
       >
-        <p className="text-[11px] tracking-[0.4em] uppercase text-muted mb-10">
-          DM AI 創作者 · 每天更新
+        <p className="font-mono text-[10px] tracking-[0.4em] uppercase text-silver-soft mb-10">
+          ::: DM AI 創作者 :: 每天更新 :::
         </p>
 
         <RevealHeading
           lines={["用 AI 把你的想法", "做成真的東西"]}
-          className="font-serif text-[2.75rem] sm:text-6xl md:text-7xl font-medium leading-[1.3] tracking-[0.04em] max-w-4xl text-foreground"
+          className="font-serif text-[2.75rem] sm:text-6xl md:text-7xl font-medium leading-[1.3] tracking-[0.04em] max-w-4xl text-white [text-shadow:0_0_28px_rgba(140,180,240,0.45),0_0_56px_rgba(80,130,220,0.22)]"
         />
 
         <div className="w-16 h-px bg-foreground/30 my-12" />
@@ -87,13 +87,24 @@ export default function Home() {
           不會寫 code 也沒關係，私訊聊聊。
         </p>
 
-        <div className="mt-14 flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+        <div className="mt-14 flex flex-col sm:flex-row gap-3 w-full sm:w-auto items-center">
           <MagneticButton href={DM_URL} variant="primary">
-            私訊我
+            <span className="font-mono text-[12px] tracking-[0.25em]">
+              ▶ INIT_CONNECTION
+            </span>
           </MagneticButton>
           <MagneticButton href="#works" variant="outline" external={false}>
-            看看作品
+            <span className="font-mono text-[12px] tracking-[0.25em]">
+              ↓ VIEW_WORKS
+            </span>
           </MagneticButton>
+        </div>
+
+        <div
+          aria-hidden
+          className="mt-20 font-mono text-[10px] tracking-[0.3em] text-silver-soft/60"
+        >
+          [ scroll to continue ↓ ]
         </div>
       </FadeInSection>
 
@@ -103,8 +114,8 @@ export default function Home() {
         className="px-6 py-28 max-w-5xl mx-auto w-full border-t border-border"
       >
         <div className="mb-16">
-          <p className="font-serif text-[11px] tracking-[0.4em] uppercase text-muted mb-4">
-            / Works
+          <p className="font-mono text-[11px] tracking-[0.4em] uppercase text-silver-soft mb-4">
+            // WORKS
           </p>
           <h2 className="font-serif text-3xl sm:text-4xl font-medium tracking-[0.06em] text-foreground">
             我做的東西
@@ -115,31 +126,36 @@ export default function Home() {
         </div>
 
         <div className="grid sm:grid-cols-2 gap-6">
-          {works.map((w) => (
+          {works.map((w, i) => (
             <HoverCard
               key={w.title}
               href={w.url}
-              className="p-8 rounded-sm border border-border bg-paper transition-colors"
+              className="p-8 tech-border bg-bg-2 transition-colors relative overflow-hidden"
             >
               <div className="flex justify-between items-start mb-8">
-                <h3 className="font-serif text-2xl font-medium tracking-[0.05em] text-foreground">
-                  {w.title}
-                </h3>
-                <span className="text-[10px] tracking-[0.25em] uppercase text-muted pt-2">
+                <div>
+                  <p className="font-mono text-[10px] tracking-[0.3em] text-silver-soft mb-3">
+                    LEVEL.{String(i + 1).padStart(2, "0")}
+                  </p>
+                  <h3 className="font-serif text-2xl font-medium tracking-[0.05em] text-foreground">
+                    {w.title}
+                  </h3>
+                </div>
+                <span className="font-mono text-[9px] tracking-[0.3em] uppercase text-silver-soft pt-2 border border-silver-soft/30 px-2 py-1 rounded-sm">
                   {w.tag}
                 </span>
               </div>
               <p className="text-ink-soft leading-[2] text-[14px] tracking-wide mb-8">
                 {w.desc}
               </p>
-              <p className="text-[11px] tracking-[0.3em] uppercase text-foreground inline-flex items-center gap-2 group-hover:gap-3 transition-all">
-                前往試玩 <span>→</span>
+              <p className="font-mono text-[11px] tracking-[0.3em] uppercase text-accent-2 inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+                ▶ ENTER <span>→</span>
               </p>
             </HoverCard>
           ))}
-          <div className="sm:col-span-2 p-8 rounded-sm border border-dashed border-border flex items-center justify-center min-h-[120px]">
-            <p className="text-[11px] tracking-[0.3em] uppercase text-muted">
-              下一個作品 進行中
+          <div className="sm:col-span-2 p-8 tech-border flex items-center justify-center min-h-[120px]">
+            <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-silver-soft/60">
+              [ LEVEL.03 ::: LOADING ... ]
             </p>
           </div>
         </div>
@@ -148,12 +164,12 @@ export default function Home() {
       <FadeInSection
         as="section"
         id="services"
-        className="px-6 py-28 bg-cream-deep/40 border-y border-border w-full"
+        className="px-6 py-28 bg-bg-2 border-y border-border w-full"
       >
         <div className="max-w-5xl mx-auto">
           <div className="mb-16 text-center">
-            <p className="font-serif text-[11px] tracking-[0.4em] uppercase text-muted mb-4">
-              / Services
+            <p className="font-mono text-[11px] tracking-[0.4em] uppercase text-silver-soft mb-4">
+              // SERVICES
             </p>
             <h2 className="font-serif text-3xl sm:text-4xl font-medium tracking-[0.06em] text-foreground mb-5">
               我能幫你做什麼
@@ -183,12 +199,15 @@ export default function Home() {
         id="about"
         className="px-6 py-28 max-w-3xl mx-auto w-full"
       >
-        <p className="font-serif text-[11px] tracking-[0.4em] uppercase text-muted mb-4">
-          / About
+        <p className="font-mono text-[11px] tracking-[0.4em] uppercase text-silver-soft mb-4">
+          // PLAYER_PROFILE
         </p>
         <h2 className="font-serif text-3xl sm:text-4xl font-medium tracking-[0.06em] text-foreground mb-12">
           關於我
         </h2>
+
+        {/* TODO: DM 頭貼放這裡 (左上 80x80 圓框) — 等拿到 PNG 再加 */}
+
         <div className="space-y-6 text-[15px] text-ink-soft leading-[2.2] tracking-wide">
           <p>嗨，我是 DM。</p>
           <p>我用 AI 幫人把想法做成真的東西 —— 網站、小工具、社群內容。</p>
@@ -209,7 +228,10 @@ export default function Home() {
         id="contact"
         className="px-6 py-28 w-full border-t border-border"
       >
-        <div className="max-w-3xl mx-auto text-center p-12 sm:p-16 rounded-sm border border-border bg-paper">
+        <div className="max-w-3xl mx-auto text-center p-12 sm:p-16 tech-border bg-bg-2">
+          <p className="font-mono text-[10px] tracking-[0.4em] text-silver-soft mb-6">
+            ::: READY_PLAYER_ONE :::
+          </p>
           <h2 className="font-serif text-3xl sm:text-4xl font-medium tracking-[0.08em] text-foreground mb-6">
             有想法 就直接說
           </h2>
@@ -217,31 +239,33 @@ export default function Home() {
             最快的聯絡方式是私訊，通常 24 小時內回覆。
           </p>
           <MagneticButton href={DM_URL} variant="primary" className="px-14">
-            私訊我
+            <span className="font-mono text-[12px] tracking-[0.25em]">
+              ▶ INIT_CONNECTION
+            </span>
           </MagneticButton>
-          <div className="mt-12 pt-8 border-t border-border flex flex-wrap gap-8 justify-center text-[11px] tracking-[0.3em] uppercase">
+          <div className="mt-12 pt-8 border-t border-border flex flex-wrap gap-8 justify-center font-mono text-[10px] tracking-[0.3em] uppercase">
             <a
               href={THREADS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted hover:text-foreground transition"
+              className="text-silver-soft hover:text-foreground transition"
             >
-              Threads
+              [ Threads ]
             </a>
             <a
               href={IG_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted hover:text-foreground transition"
+              className="text-silver-soft hover:text-foreground transition"
             >
-              Instagram
+              [ Instagram ]
             </a>
           </div>
         </div>
       </FadeInSection>
 
-      <footer className="py-12 text-center text-[10px] tracking-[0.3em] uppercase text-muted border-t border-border">
-        © 2026 DM AI Creator · Made with AI
+      <footer className="py-12 text-center font-mono text-[10px] tracking-[0.3em] uppercase text-silver-soft/60 border-t border-border">
+        © 2026 DM_AI / MADE_WITH_AI
       </footer>
     </main>
   );

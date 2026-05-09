@@ -56,8 +56,8 @@ export default function MagneticButton({
 
   const variantClass =
     variant === "primary"
-      ? "magnetic-primary text-background"
-      : "border border-foreground/30 hover:border-foreground hover:bg-cream-deep text-foreground transition-colors";
+      ? "tech-primary"
+      : "tech-outline";
 
   return (
     <motion.a

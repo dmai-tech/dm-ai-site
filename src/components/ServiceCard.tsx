@@ -29,20 +29,20 @@ export default function ServiceCard({
           : {
               y: -8,
               boxShadow:
-                "0 20px 44px -16px rgba(60, 45, 25, 0.28), 0 0 0 1px rgba(180, 130, 70, 0.3)",
+                "0 20px 44px -16px rgba(20, 40, 80, 0.55), 0 0 0 1px rgba(140, 180, 230, 0.4)",
             }
       }
       transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-      className="group p-8 rounded-sm border border-border bg-paper flex flex-col cursor-default relative overflow-hidden"
+      className="group p-8 tech-border bg-bg-2 flex flex-col cursor-default relative overflow-hidden"
     >
-      <span className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[rgba(220,170,90,0.0)] via-transparent to-[rgba(180,130,60,0.0)] group-hover:from-[rgba(220,170,90,0.12)] group-hover:to-[rgba(180,130,60,0.06)] transition-all duration-500" />
+      <span className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[rgba(91,139,217,0.0)] via-transparent to-[rgba(192,200,216,0.0)] group-hover:from-[rgba(91,139,217,0.10)] group-hover:to-[rgba(192,200,216,0.04)] transition-all duration-500" />
 
       <motion.p
         whileHover={reduce ? undefined : { scale: 1.18, x: 2 }}
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className="font-serif text-xs tracking-[0.35em] text-muted mb-6 group-hover:text-foreground transition-colors origin-left"
+        className="font-mono text-xs tracking-[0.35em] text-silver-soft mb-6 group-hover:text-silver transition-colors origin-left"
       >
-        0{index + 1}
+        [ {String(index + 1).padStart(2, "0")} ]
       </motion.p>
       <h3 className="font-serif text-xl font-medium tracking-[0.05em] text-foreground mb-4 relative">
         {title}

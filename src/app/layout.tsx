@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import LoadingScreen from "@/components/LoadingScreen";
+import TopHUD from "@/components/TopHUD";
 
 export const metadata: Metadata = {
   title: "DM AI 創作者｜用 AI 幫你把想法變成東西",
@@ -22,11 +24,16 @@ export default function RootLayout({
           crossOrigin=""
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&family=VT323&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <LoadingScreen />
+        <div className="scan-overlay" aria-hidden />
+        <TopHUD />
+        {children}
+      </body>
     </html>
   );
 }
