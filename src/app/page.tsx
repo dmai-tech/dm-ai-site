@@ -1,6 +1,7 @@
 import FadeInSection from "@/components/FadeInSection";
 import HoverCard from "@/components/HoverCard";
 import MagneticButton from "@/components/MagneticButton";
+import RevealHeading from "@/components/RevealHeading";
 
 const DM_URL = "https://www.threads.com/@dm22ai22";
 const THREADS_URL = "https://www.threads.com/@dm22ai22";
@@ -42,6 +43,8 @@ const services = [
 export default function Home() {
   return (
     <main className="flex flex-col w-full relative">
+      <div className="bg-ambient" aria-hidden />
+      <div className="grain-overlay" aria-hidden />
       <nav className="sticky top-0 z-50 bg-cream-deep/90 backdrop-blur-sm border-b border-border">
         <div className="max-w-5xl mx-auto px-6 py-5 flex justify-between items-center">
           <a
@@ -72,11 +75,10 @@ export default function Home() {
           DM AI 創作者 · 每天更新
         </p>
 
-        <h1 className="font-serif text-[2.75rem] sm:text-6xl md:text-7xl font-medium leading-[1.3] tracking-[0.04em] max-w-4xl text-foreground">
-          用 AI 把你的想法
-          <br />
-          做成真的東西
-        </h1>
+        <RevealHeading
+          lines={["用 AI 把你的想法", "做成真的東西"]}
+          className="font-serif text-[2.75rem] sm:text-6xl md:text-7xl font-medium leading-[1.3] tracking-[0.04em] max-w-4xl text-foreground"
+        />
 
         <div className="w-16 h-px bg-foreground/30 my-12" />
 
