@@ -1,3 +1,7 @@
+import FadeInSection from "@/components/FadeInSection";
+import HoverCard from "@/components/HoverCard";
+import MagneticButton from "@/components/MagneticButton";
+
 const DM_URL = "https://www.threads.com/@dm22ai22";
 const THREADS_URL = "https://www.threads.com/@dm22ai22";
 const IG_URL = "https://www.instagram.com/dm22ai22";
@@ -38,7 +42,6 @@ const services = [
 export default function Home() {
   return (
     <main className="flex flex-col w-full relative">
-      {/* 導覽列 */}
       <nav className="sticky top-0 z-50 bg-cream-deep/90 backdrop-blur-sm border-b border-border">
         <div className="max-w-5xl mx-auto px-6 py-5 flex justify-between items-center">
           <a
@@ -61,8 +64,10 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero */}
-      <section className="min-h-[88vh] flex flex-col justify-center items-center px-6 py-24 text-center">
+      <FadeInSection
+        as="section"
+        className="min-h-[88vh] flex flex-col justify-center items-center px-6 py-24 text-center"
+      >
         <p className="text-[11px] tracking-[0.4em] uppercase text-muted mb-10">
           DM AI 創作者 · 每天更新
         </p>
@@ -82,25 +87,17 @@ export default function Home() {
         </p>
 
         <div className="mt-14 flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-          <a
-            href={DM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-10 py-4 rounded-sm bg-foreground text-background text-sm tracking-[0.15em] hover:bg-ink-soft transition-colors"
-          >
+          <MagneticButton href={DM_URL} variant="primary">
             私訊我
-          </a>
-          <a
-            href="#works"
-            className="px-10 py-4 rounded-sm border border-foreground/30 hover:border-foreground hover:bg-cream-deep transition-colors text-foreground text-sm tracking-[0.15em]"
-          >
+          </MagneticButton>
+          <MagneticButton href="#works" variant="outline" external={false}>
             看看作品
-          </a>
+          </MagneticButton>
         </div>
-      </section>
+      </FadeInSection>
 
-      {/* 作品 */}
-      <section
+      <FadeInSection
+        as="section"
         id="works"
         className="px-6 py-28 max-w-5xl mx-auto w-full border-t border-border"
       >
@@ -118,12 +115,10 @@ export default function Home() {
 
         <div className="grid sm:grid-cols-2 gap-6">
           {works.map((w) => (
-            <a
+            <HoverCard
               key={w.title}
               href={w.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group p-8 rounded-sm border border-border bg-paper hover:bg-cream-light transition-colors"
+              className="p-8 rounded-sm border border-border bg-paper transition-colors"
             >
               <div className="flex justify-between items-start mb-8">
                 <h3 className="font-serif text-2xl font-medium tracking-[0.05em] text-foreground">
@@ -139,7 +134,7 @@ export default function Home() {
               <p className="text-[11px] tracking-[0.3em] uppercase text-foreground inline-flex items-center gap-2 group-hover:gap-3 transition-all">
                 前往試玩 <span>→</span>
               </p>
-            </a>
+            </HoverCard>
           ))}
           <div className="sm:col-span-2 p-8 rounded-sm border border-dashed border-border flex items-center justify-center min-h-[120px]">
             <p className="text-[11px] tracking-[0.3em] uppercase text-muted">
@@ -147,10 +142,10 @@ export default function Home() {
             </p>
           </div>
         </div>
-      </section>
+      </FadeInSection>
 
-      {/* 服務 */}
-      <section
+      <FadeInSection
+        as="section"
         id="services"
         className="px-6 py-28 bg-cream-deep/40 border-y border-border w-full"
       >
@@ -199,10 +194,13 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </FadeInSection>
 
-      {/* 關於我 */}
-      <section id="about" className="px-6 py-28 max-w-3xl mx-auto w-full">
+      <FadeInSection
+        as="section"
+        id="about"
+        className="px-6 py-28 max-w-3xl mx-auto w-full"
+      >
         <p className="font-serif text-[11px] tracking-[0.4em] uppercase text-muted mb-4">
           / About
         </p>
@@ -222,10 +220,13 @@ export default function Home() {
             有想法但卡在技術？私訊找我，我帶你做。（這個網站就是我用 AI 寫的。）
           </p>
         </div>
-      </section>
+      </FadeInSection>
 
-      {/* CTA + 聯絡 */}
-      <section id="contact" className="px-6 py-28 w-full border-t border-border">
+      <FadeInSection
+        as="section"
+        id="contact"
+        className="px-6 py-28 w-full border-t border-border"
+      >
         <div className="max-w-3xl mx-auto text-center p-12 sm:p-16 rounded-sm border border-border bg-paper">
           <h2 className="font-serif text-3xl sm:text-4xl font-medium tracking-[0.08em] text-foreground mb-6">
             有想法 就直接說
@@ -233,14 +234,9 @@ export default function Home() {
           <p className="text-muted mb-12 text-sm tracking-wide leading-[2]">
             最快的聯絡方式是私訊，通常 24 小時內回覆。
           </p>
-          <a
-            href={DM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-14 py-4 rounded-sm bg-foreground text-background text-sm tracking-[0.15em] hover:bg-ink-soft transition-colors"
-          >
+          <MagneticButton href={DM_URL} variant="primary" className="px-14">
             私訊我
-          </a>
+          </MagneticButton>
           <div className="mt-12 pt-8 border-t border-border flex flex-wrap gap-8 justify-center text-[11px] tracking-[0.3em] uppercase">
             <a
               href={THREADS_URL}
@@ -260,7 +256,7 @@ export default function Home() {
             </a>
           </div>
         </div>
-      </section>
+      </FadeInSection>
 
       <footer className="py-12 text-center text-[10px] tracking-[0.3em] uppercase text-muted border-t border-border">
         © 2026 DM AI Creator · Made with AI

@@ -59,3 +59,27 @@ html {
   background: var(--foreground);
   color: var(--background);
 }
+
+@keyframes magnetic-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.magnetic-primary {
+  background: linear-gradient(120deg, #1A1916 0%, #2A2620 35%, #3A3833 65%, #1A1916 100%);
+  background-size: 220% 220%;
+  animation: magnetic-shift 6s ease-in-out infinite;
+  transition: filter 0.3s ease;
+}
+
+.magnetic-primary:hover {
+  filter: brightness(1.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .magnetic-primary {
+    animation: none;
+    background: var(--foreground);
+  }
+}
