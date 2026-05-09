@@ -56,7 +56,7 @@ export default function V1Flip() {
             <h1 className="mb-6">
               <span className="block text-chunky-v2 text-[3.4rem] sm:text-[4.5rem]">
                 用{" "}
-                <span className="font-marker text-[#FF50B4] text-[3.6rem] sm:text-[5rem] inline-block -rotate-3 [text-shadow:_3px_3px_0_#5A3DC9]">
+                <span className="font-marker text-[#FBC02D] text-[3.6rem] sm:text-[5rem] inline-block -rotate-3 [text-shadow:_3px_3px_0_#5A3DC9]">
                   AI
                 </span>{" "}
                 把你的
@@ -65,7 +65,7 @@ export default function V1Flip() {
                 想法做成
               </span>
               <span className="block font-bagel text-[3.6rem] sm:text-[5rem] mt-2 italic">
-                <span className="bg-[#5A3DC9] text-[#FBC02D] px-3 inline-block -rotate-1 [text-shadow:_4px_4px_0_#FF50B4]">
+                <span className="bg-[#5A3DC9] text-[#FBC02D] px-3 inline-block -rotate-1 [text-shadow:_4px_4px_0_#FBC02D]">
                   真的東西
                 </span>
               </span>
@@ -78,7 +78,7 @@ export default function V1Flip() {
             </p>
 
             <div className="flex gap-3 flex-wrap">
-              <button className="bg-[#5A3DC9] text-[#FBC02D] font-bungee text-base px-7 py-3 rounded-full border-[3px] border-[#5A3DC9] hover:bg-[#FBC02D] hover:text-[#5A3DC9] hover:border-[#5A3DC9] transition shadow-[5px_5px_0_0_#FF50B4]">
+              <button className="bg-[#5A3DC9] text-[#FBC02D] font-bungee text-base px-7 py-3 rounded-full border-[3px] border-[#5A3DC9] hover:bg-[#FBC02D] hover:text-[#5A3DC9] hover:border-[#5A3DC9] transition shadow-[5px_5px_0_0_#FBC02D]">
                 ▶ 私訊我
               </button>
               <button className="bg-white text-[#5A3DC9] font-bungee text-base px-7 py-3 rounded-full border-[3px] border-[#5A3DC9] shadow-[5px_5px_0_0_#FBC02D]">
@@ -115,7 +115,7 @@ export default function V1Flip() {
                 </p>
               </div>
             </div>
-            <span className="absolute -top-3 -right-3 bg-[#FF50B4] text-white border-[3px] border-[#5A3DC9] px-3 py-1.5 rounded-full font-bungee text-xs shadow-[3px_3px_0_0_#5A3DC9] rotate-6">
+            <span className="absolute -top-3 -right-3 bg-[#FBC02D] text-white border-[3px] border-[#5A3DC9] px-3 py-1.5 rounded-full font-bungee text-xs shadow-[3px_3px_0_0_#5A3DC9] rotate-6">
               ★ NEW ★
             </span>
             <span className="absolute -bottom-2 -left-2 bg-white border-[3px] border-[#5A3DC9] px-2.5 py-1 rounded-full font-marker text-sm text-[#5A3DC9] -rotate-3">
@@ -132,7 +132,7 @@ export default function V1Flip() {
           <div className="grid sm:grid-cols-2 gap-5 mt-4">
             {[
               { title: "脆生成器", tag: "AI 工具", color: "#FBC02D", emoji: "✦" },
-              { title: "貓咪遊戲", tag: "互動", color: "#FF50B4", emoji: "★" },
+              { title: "貓咪遊戲", tag: "互動", color: "#FBC02D", emoji: "★" },
             ].map((w) => (
               <div
                 key={w.title}
