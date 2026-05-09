@@ -108,6 +108,20 @@ body {
   display: inline-block;
 }
 
+/* V1 chunky 中文 — 紫黃配色版（黑色降到最低，只剩文字必要 outline） */
+.text-chunky-v2 {
+  font-family: "Noto Sans TC", sans-serif;
+  font-weight: 900;
+  color: #FFFFFF;
+  -webkit-text-stroke: 2px #5A3DC9;
+  paint-order: stroke fill;
+  text-shadow:
+    4px 4px 0 #5A3DC9,
+    8px 8px 0 #FBC02D;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+
 html { scroll-behavior: smooth; }
 
 ::selection {
