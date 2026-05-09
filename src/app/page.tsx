@@ -1,5 +1,5 @@
 import FadeInSection from "@/components/FadeInSection";
-import ImageHoverCard from "@/components/ImageHoverCard";
+import HoverCard from "@/components/HoverCard";
 import MagneticButton from "@/components/MagneticButton";
 import RevealHeading from "@/components/RevealHeading";
 import ServiceCard from "@/components/ServiceCard";
@@ -14,14 +14,12 @@ const works = [
     desc: "一鍵生成 Threads 貼文靈感，解決每天不知道發什麼的痛點。",
     url: "https://dmai-tech.vercel.app",
     tag: "AI 工具",
-    image: "/works/dmai-tech.jpeg",
   },
   {
     title: "貓咪遊戲",
     desc: "用 AI 寫 code 做的互動小遊戲，驗證「不會寫程式也能做出東西」。",
     url: "https://scary-cat-maze.vercel.app",
     tag: "遊戲",
-    image: "/works/cat.jpeg",
   },
 ];
 
@@ -118,15 +116,26 @@ export default function Home() {
 
         <div className="grid sm:grid-cols-2 gap-6">
           {works.map((w) => (
-            <ImageHoverCard
+            <HoverCard
               key={w.title}
               href={w.url}
-              image={w.image}
-              alt={`${w.title} 作品截圖`}
-              title={w.title}
-              desc={w.desc}
-              tag={w.tag}
-            />
+              className="p-8 rounded-sm border border-border bg-paper transition-colors"
+            >
+              <div className="flex justify-between items-start mb-8">
+                <h3 className="font-serif text-2xl font-medium tracking-[0.05em] text-foreground">
+                  {w.title}
+                </h3>
+                <span className="text-[10px] tracking-[0.25em] uppercase text-muted pt-2">
+                  {w.tag}
+                </span>
+              </div>
+              <p className="text-ink-soft leading-[2] text-[14px] tracking-wide mb-8">
+                {w.desc}
+              </p>
+              <p className="text-[11px] tracking-[0.3em] uppercase text-foreground inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+                前往試玩 <span>→</span>
+              </p>
+            </HoverCard>
           ))}
           <div className="sm:col-span-2 p-8 rounded-sm border border-dashed border-border flex items-center justify-center min-h-[120px]">
             <p className="text-[11px] tracking-[0.3em] uppercase text-muted">
