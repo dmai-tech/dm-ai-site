@@ -27,15 +27,15 @@ export default function ServiceCard({
         reduce
           ? undefined
           : {
-              y: -8,
+              y: -6,
               boxShadow:
-                "0 20px 44px -16px rgba(20, 40, 80, 0.55), 0 0 0 1px rgba(140, 180, 230, 0.4)",
+                "0 16px 36px -14px rgba(180, 138, 74, 0.32), 0 0 0 1px rgba(216, 154, 91, 0.45)",
             }
       }
       transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-      className="group p-8 tech-border bg-bg-2 flex flex-col cursor-default relative overflow-hidden"
+      className="group p-8 tech-border flex flex-col cursor-default relative overflow-hidden shadow-[0_8px_28px_-14px_rgba(180,138,74,0.26)]"
     >
-      <span className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[rgba(91,139,217,0.0)] via-transparent to-[rgba(192,200,216,0.0)] group-hover:from-[rgba(91,139,217,0.10)] group-hover:to-[rgba(192,200,216,0.04)] transition-all duration-500" />
+      <span className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[rgba(216,154,91,0)] via-transparent to-[rgba(216,154,91,0)] group-hover:from-[rgba(216,154,91,0.18)] group-hover:to-[rgba(216,154,91,0.04)] transition-all duration-500" />
 
       <motion.p
         whileHover={reduce ? undefined : { scale: 1.18, x: 2 }}

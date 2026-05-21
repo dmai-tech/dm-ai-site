@@ -9,6 +9,7 @@ type Props = {
   delay?: number;
   as?: "div" | "section";
   id?: string;
+  style?: React.CSSProperties;
 };
 
 export default function FadeInSection({
@@ -17,6 +18,7 @@ export default function FadeInSection({
   delay = 0,
   as = "div",
   id,
+  style,
 }: Props) {
   const reduce = useReducedMotion();
   const MotionTag = as === "section" ? motion.section : motion.div;
@@ -25,6 +27,7 @@ export default function FadeInSection({
     <MotionTag
       id={id}
       className={className}
+      style={style}
       initial={reduce ? false : { opacity: 0, y: 28, scale: 0.97 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, amount: 0.15, margin: "0px 0px -10% 0px" }}

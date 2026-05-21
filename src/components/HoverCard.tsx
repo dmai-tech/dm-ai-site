@@ -28,10 +28,10 @@ export default function HoverCard({
         reduce
           ? undefined
           : {
-              y: -10,
+              y: -6,
               scale: 1.02,
               boxShadow:
-                "0 24px 48px -16px rgba(20, 40, 80, 0.55), 0 8px 16px -8px rgba(80, 130, 220, 0.35), 0 0 0 1px rgba(140, 180, 230, 0.4)",
+                "0 18px 36px -14px rgba(180, 138, 74, 0.32), 0 6px 14px -6px rgba(216, 154, 91, 0.22), 0 0 0 1px rgba(216, 154, 91, 0.45)",
             }
       }
       transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}

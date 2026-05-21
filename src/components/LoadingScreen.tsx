@@ -112,12 +112,12 @@ function DMPixelLogo() {
       width={totalW}
       height={totalH}
       viewBox={`0 0 ${totalW} ${totalH}`}
-      className="drop-shadow-[0_0_24px_rgba(107,160,232,0.45)]"
+      className="drop-shadow-[0_0_24px_rgba(124,185,232,0.45)]"
     >
       <defs>
         <linearGradient id="pixelGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#FFFFFF" stopOpacity="1" />
-          <stop offset="100%" stopColor="#6BA0E8" stopOpacity="1" />
+          <stop offset="0%" stopColor="#2D1F12" stopOpacity="1" />
+          <stop offset="100%" stopColor="#D89A5B" stopOpacity="1" />
         </linearGradient>
       </defs>
       {renderLetter(D, 0)}

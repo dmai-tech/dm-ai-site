@@ -1,27 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0A0E1A;
-  --bg-2: #131826;
-  --bg-3: #1A2030;
-  --paper: #131826;
-  --surface: #131826;
-  --surface-2: #1A2030;
-  --foreground: #E8ECF2;
-  --ink-soft: #B8C0D0;
-  --muted: #6F7A8E;
-  --border: #2A3142;
-  --line-soft: #1F2535;
-  --accent: #5B8BD9;
-  --accent-2: #6BA0E8;
-  --accent-soft: #2C3E5F;
-  --silver: #C0C8D8;
-  --silver-soft: #8F98A8;
-  --pixel-glow: #6BA0E8;
+  /* === Editorial · Cafe aesthetic · 大地色 === */
+  --background: #FAF6EA;
+  --bg-2: #FFFFFF;
+  --bg-3: #F4EDDE;
+  --paper: #FFFFFF;
+  --surface: #FFFFFF;
+  --surface-2: #F4EDDE;
+  --foreground: #2B2B2B;
+  --ink-soft: #4A3F35;
+  --muted: #8B6B4E;
+  --border: #E5DBC2;
+  --line-soft: #EFE7D2;
+  --accent: #C69C6D;
+  --accent-2: #D6B58A;
+  --accent-soft: #F4E8D6;
+  --silver: #4A3F35;
+  --silver-soft: #8B6B4E;
+  --pixel-glow: #C69C6D;
+  --pop: #C69C6D;
   --font-serif: "Noto Serif TC", "PingFang TC", "Songti TC", serif;
   --font-sans: "Noto Sans TC", -apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei", sans-serif;
   --font-mono: "JetBrains Mono", "IBM Plex Mono", "SF Mono", Menlo, monospace;
-  --font-pixel: "VT323", "Courier New", monospace;
+  --font-pixel: "Press Start 2P", "VT323", "Courier New", monospace;
 }
 
 @theme inline {
@@ -42,6 +44,7 @@
   --color-silver: var(--silver);
   --color-silver-soft: var(--silver-soft);
   --color-pixel-glow: var(--pixel-glow);
+  --color-pop: var(--pop);
   --font-serif: var(--font-serif);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
@@ -62,105 +65,82 @@ body {
 .font-serif { font-family: var(--font-serif); }
 .font-mono  { font-family: var(--font-mono); }
 .font-pixel { font-family: var(--font-pixel); letter-spacing: 0.05em; }
+
+/* === Display fonts (復古海報感) === */
 .font-bagel { font-family: "Bagel Fat One", "Noto Sans TC", sans-serif; font-weight: 400; }
 .font-bungee { font-family: "Bungee", "Noto Sans TC", sans-serif; }
 .font-bungee-shade { font-family: "Bungee Shade", "Noto Sans TC", sans-serif; }
+.font-bungee-outline { font-family: "Bungee Outline", "Noto Sans TC", sans-serif; }
+.font-bowlby { font-family: "Bowlby One", "Noto Sans TC", sans-serif; }
+.font-rampart { font-family: "Rampart One", "Noto Sans TC", sans-serif; }
+.font-climate { font-family: "Climate Crisis", "Noto Sans TC", sans-serif; }
+.font-blackhan { font-family: "Black Han Sans", "Noto Sans TC", sans-serif; }
 .font-marker { font-family: "Permanent Marker", "Noto Sans TC", cursive; }
-.font-space-mono { font-family: "Space Mono", "JetBrains Mono", monospace; }
+.font-zcool-huang { font-family: "ZCOOL QingKe HuangYou", "Noto Sans TC", sans-serif; }
+.font-pixelify { font-family: "Pixelify Sans", monospace; }
 
-/* ===== Y2K chunky text: 中文標題立體+描邊 ===== */
-.text-chunky {
+/* === 中文立體 chunky 字（大地色復古版） === */
+.zh-chunky {
   font-family: "Noto Sans TC", sans-serif;
   font-weight: 900;
-  -webkit-text-stroke: 2px #000;
-  text-stroke: 2px #000;
+  color: #FAF6EA;
+  -webkit-text-stroke: 2px #2D1F12;
   paint-order: stroke fill;
   text-shadow:
-    4px 4px 0 #000,
-    8px 8px 0 #FBC02D;
+    4px 4px 0 #2D1F12,
+    8px 8px 0 #C46A2F;
   letter-spacing: 0.02em;
-  line-height: 1.1;
+  line-height: 1.2;
 }
-.text-chunky-purple {
+.zh-chunky-warm {
   font-family: "Noto Sans TC", sans-serif;
   font-weight: 900;
-  color: #FBC02D;
-  -webkit-text-stroke: 2px #000;
+  color: #FAF6EA;
+  -webkit-text-stroke: 2px #2D1F12;
   paint-order: stroke fill;
   text-shadow:
-    4px 4px 0 #000,
-    8px 8px 0 #5A3DC9;
+    4px 4px 0 #2D1F12,
+    8px 8px 0 #B8442E;
   letter-spacing: 0.02em;
-  line-height: 1.1;
+  line-height: 1.2;
 }
-.text-outline {
-  color: transparent;
-  -webkit-text-stroke: 2px #000;
-  paint-order: stroke fill;
-  font-family: "Noto Sans TC", sans-serif;
-  font-weight: 900;
-}
-.text-marker-zh {
-  font-family: "Noto Sans TC", "Permanent Marker", cursive;
-  font-weight: 900;
-  font-style: italic;
-  transform: rotate(-2deg);
-  display: inline-block;
-}
-
-/* V1 chunky 中文 — 紫黃配色版（黑色降到最低，只剩文字必要 outline） */
-.text-chunky-v2 {
-  font-family: "Noto Sans TC", sans-serif;
-  font-weight: 900;
-  color: #FFFFFF;
-  -webkit-text-stroke: 2px #5A3DC9;
-  paint-order: stroke fill;
-  text-shadow:
-    4px 4px 0 #5A3DC9,
-    8px 8px 0 #FBC02D;
+.dm-hero-mega {
+  font-family: "Bungee Shade", "Noto Sans TC", sans-serif;
+  line-height: 0.95;
   letter-spacing: 0.02em;
-  line-height: 1.1;
 }
 
 html { scroll-behavior: smooth; }
 
 ::selection {
   background: var(--accent);
-  color: var(--background);
+  color: white;
 }
 
-/* ========== 科技感按鈕 ========== */
+/* ========== Buttons (淺底版) ========== */
 .tech-primary {
   position: relative;
-  background: linear-gradient(180deg, #1A2540 0%, #0F1525 100%);
-  color: #E8ECF2;
-  border: 1px solid rgba(120, 160, 220, 0.4);
-  box-shadow:
-    inset 0 1px 0 rgba(180, 210, 255, 0.18),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.4),
-    0 8px 24px -8px rgba(40, 80, 160, 0.45),
-    0 0 0 1px rgba(100, 150, 220, 0.15);
+  background: var(--foreground);
+  color: white;
+  border: 1px solid var(--foreground);
+  box-shadow: 0 4px 14px -4px rgba(15, 27, 46, 0.25);
   transition: all 0.3s ease;
 }
 .tech-primary:hover {
-  background: linear-gradient(180deg, #243358 0%, #131C32 100%);
-  border-color: rgba(150, 190, 240, 0.65);
-  box-shadow:
-    inset 0 1px 0 rgba(200, 220, 255, 0.28),
-    0 12px 32px -8px rgba(80, 130, 220, 0.55),
-    0 0 0 1px rgba(140, 180, 230, 0.3),
-    0 0 24px -4px rgba(100, 150, 220, 0.4);
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 8px 22px -6px rgba(74, 144, 201, 0.45);
 }
 .tech-outline {
-  background: transparent;
-  border: 1px solid rgba(120, 140, 180, 0.45);
-  color: var(--ink-soft);
+  background: white;
+  border: 1px solid var(--border);
+  color: var(--foreground);
   transition: all 0.3s ease;
 }
 .tech-outline:hover {
-  border-color: var(--silver);
-  color: var(--foreground);
-  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-soft);
 }
 
 /* ========== Top HUD bar ========== */
@@ -178,7 +158,7 @@ html { scroll-behavior: smooth; }
   font-size: 10px;
   letter-spacing: 0.18em;
   color: var(--silver-soft);
-  background: linear-gradient(180deg, rgba(10, 14, 26, 0.95) 0%, rgba(10, 14, 26, 0) 100%);
+  background: linear-gradient(180deg, rgba(250, 246, 234, 0.95) 0%, rgba(250, 246, 234, 0) 100%);
   pointer-events: none;
   user-select: none;
 }
@@ -197,21 +177,11 @@ html { scroll-behavior: smooth; }
   50% { opacity: 0.45; }
 }
 
-/* ========== glow text (white + cool blue glow halo) ========== */
-.text-glow {
-  color: #FFFFFF;
-  text-shadow:
-    0 0 24px rgba(120, 170, 240, 0.4),
-    0 0 48px rgba(80, 130, 220, 0.2);
-}
-.text-glow span {
-  color: inherit;
-}
-
-/* ========== dashed tech border ========== */
+/* ========== Card border (淺底版) ========== */
 .tech-border {
-  border: 1px dashed rgba(120, 140, 180, 0.35);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0) 100%);
+  border: 1px solid var(--border);
+  background: white;
+  border-radius: 16px;
 }
 
 /* ========== loading screen pixel progress ========== */
@@ -224,14 +194,14 @@ html { scroll-behavior: smooth; }
   width: 8px;
   height: 16px;
   background: var(--pixel-glow);
-  box-shadow: 0 0 6px rgba(107, 160, 232, 0.6);
+  box-shadow: 0 0 6px rgba(124, 185, 232, 0.5);
 }
 .pixel-bar span.off {
-  background: rgba(107, 160, 232, 0.18);
+  background: rgba(124, 185, 232, 0.18);
   box-shadow: none;
 }
 
-/* ========== scan line subtle texture ========== */
+/* ========== subtle scan line (淺底版 — 幾乎隱藏) ========== */
 .scan-overlay {
   position: fixed;
   inset: 0;
@@ -239,13 +209,27 @@ html { scroll-behavior: smooth; }
   pointer-events: none;
   background-image: repeating-linear-gradient(
     0deg,
-    rgba(255, 255, 255, 0.015) 0px,
-    rgba(255, 255, 255, 0.015) 1px,
+    rgba(15, 27, 46, 0.008) 0px,
+    rgba(15, 27, 46, 0.008) 1px,
     transparent 1px,
     transparent 3px
   );
 }
 
+/* ========== pixel-art image rendering ========== */
+.pixel-art {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.animate-bob { animation: bob 3s ease-in-out infinite; }
+
 @media (prefers-reduced-motion: reduce) {
   .hud-top .dot { animation: none; }
+  .animate-bob { animation: none; }
 }
